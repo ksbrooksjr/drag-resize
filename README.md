@@ -1,6 +1,6 @@
 # Introduction
 
-This is a zero dependency web component that provides a draggable and resizable div.
+This is a zero dependency web component that provides a draggable and resizable div. This was mainly written as a way for me to explore web components and familiarize myself with the process of publishing to NPM and commercial CDNs. **NOTE: this component was designed for desktop devices.**
 
 # Demo
 
