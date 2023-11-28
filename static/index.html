@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draggable and resizable web component demo</title>
+    <meta
+      name="description"
+      content="Demo of a draggable and resizable web component." />
+    <meta name="author" content="Keith Brooks" />
+    <style type="text/css">
+      /* Used to test the component while the document is scrolled */
+      div#root {
+        height: 3000px;
+        width: 3000px;
+      }
+      /* Text selection can sometimes interfere with dragging */
+      drag-resize * {
+        user-select: none;
+      }
+      drag-resize div {
+        padding: 1rem;
+      }
+      :root {
+        --dr-initial-width: 400px;
+        --dr-initial-height: 400px;
+        --dr-initial-top: 50px;
+        --dr-initial-left: 50px;
+      }
+      drag-resize:not(:defined) > * {
+        position: absolute;
+        width: var(--dr-initial-width);
+        height: var(--dr-initial-height);
+        top: var(--dr-initial-top);
+        left: var(--dr-initial-left);
+
+        margin: 5px;
+        border: 1px solid black;
+        background: white;
+      }
+      drag-resize::part(wrapper) {
+        margin: 5px;
+        border: 1px solid black;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <drag-resize
+        isResizable="true"
+        isDraggable="true"
+        minwidth="100"
+        minheight="100"
+        maxwidth="500"
+        maxheight="500">
+        <div>
+          <p>Drag and Resize Me!</p>
+        </div>
+      </drag-resize>
+    </div>
+    <script src="./dev.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "name": "@ksbrooksjr/drag-resize",
+  "description": "Draggable and resizable web component.",
+  "version": "0.2.0",
+  "homepage": "https://github.com/ksbrooksjr/drag-resize#readme",
+  "author": "Keith Brooks <ksbrooksjr@gmail.com> (https://ksbrooksjr.com/)",
+  "license": "MIT",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "jsdelivr": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "customElements": "dist/custom-elements.json",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dist/component.js": {
+      "types": "./dist/component.d.ts",
+      "import": "./dist/component.js"
+    },
+    "./dist/index.js": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dist/custom-elements.json": "./dist/custom-elements.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "web components",
+    "web component",
+    "custom elements",
+    "custom element",
+    "components",
+    "component",
+    "drag",
+    "resize",
+    "draggable",
+    "resizable"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksbrooksjr/drag-resize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ksbrooksjr/drag-resize/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "esbuild": "^0.19.8",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2",
+    "web-component-analyzer": "^2.0.0"
+  },
+  "scripts": {
+    "dev": "esbuild src/dev.ts --bundle --watch --outdir=static --servedir=static --serve=127.0.0.1:8000",
+    "manifest": "wca analyze src/index.ts --outFile dist/custom-elements.json",
+    "clean": "rm -rf dist/**/*.{css,js,ts,map,html}",
+    "build": "npm run clean && npm run declarations && npm run compile:all && npm run manifest",
+    "declarations": "tsc",
+    "compile:all": "npm run compile:index & npm run compile:component & wait",
+    "compile:index": "esbuild src/index.ts --bundle --minify --sourcemap --outfile=dist/index.js",
+    "compile:component": "esbuild src/component.ts --bundle --minify --sourcemap --outfile=dist/component.js",
+    "check": "tsc --noEmit",
+    "check:watch": "tsc --noEmit --watch",
+    "lint": "eslint src"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "bracketSameLine": true
+  }
+}

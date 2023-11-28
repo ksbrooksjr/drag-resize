@@ -1,0 +1,17 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "drag-resize",
+      "path": "./../src/index.ts",
+      "properties": [
+        {
+          "name": "observedAttributes",
+          "description": "These are the element's html attributes.",
+          "type": "string[]",
+          "default": "[\"minwidth\",\"minheight\",\"maxheight\",\"maxwidth\",\"isDraggable\",\"isResizable\"]"
+        }
+      ]
+    }
+  ]
+}
