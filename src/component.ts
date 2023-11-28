@@ -94,8 +94,8 @@ export default class DraggableResizable extends HTMLElement {
     this.#DRAGGABLE = !isDraggable || isDraggable?.trim() === 'true'
     this.#MIN_WIDTH = this.#toNumber(this.getAttribute('minwidth'), 100)
     this.#MIN_HEIGHT = this.#toNumber(this.getAttribute('minheight'), 100)
-    this.#MAX_WIDTH = this.#toNumber(this.getAttribute('maxwidth'), 2000)
-    this.#MAX_HEIGHT = this.#toNumber(this.getAttribute('maxheight'), 2000)
+    this.#MAX_WIDTH = this.#toNumber(this.getAttribute('maxwidth'), Infinity)
+    this.#MAX_HEIGHT = this.#toNumber(this.getAttribute('maxheight'), Infinity)
     this.#setupListeners()
   }
 

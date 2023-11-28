@@ -1,7 +1,7 @@
 {
   "name": "@ksbrooksjr/drag-resize",
   "description": "Draggable and resizable web component.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/ksbrooksjr/drag-resize#readme",
   "author": "Keith Brooks <ksbrooksjr@gmail.com> (https://ksbrooksjr.com/)",
   "license": "MIT",

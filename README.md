@@ -17,7 +17,7 @@ npm install @ksbrooksjr/drag-resize
 Or you can simply add a script tag that loads the component from a CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@ksbrooksjr/drag-resize@0.2.0/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ksbrooksjr/drag-resize@0.3.0/dist/index.js"></script>
 ```
 
 # Usage
