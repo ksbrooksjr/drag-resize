@@ -2,6 +2,10 @@
 
 This is a zero dependency web component that provides a draggable and resizable div.
 
+# Demo
+
+[https://ksbrooksjr.github.io/drag-resize/](https://ksbrooksjr.github.io/drag-resize/)
+
 # Installation
 
 You can install this component from NPM:
@@ -13,7 +17,7 @@ npm install @ksbrooksjr/drag-resize
 Or you can simply add a script tag that loads the component from a CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@ksbrooksjr/drag-resize@0.1.0/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ksbrooksjr/drag-resize@0.2.0/dist/index.js"></script>
 ```
 
 # Usage
