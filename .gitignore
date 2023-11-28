@@ -1,0 +1,7 @@
+node_modules
+public/index.js
+dist/**/*.js
+dist/**/*.js.*
+dist/**/*.html
+dist/**/*.css
+dist/**/*.d.ts
