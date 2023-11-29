@@ -17,9 +17,6 @@
       drag-resize * {
         user-select: none;
       }
-      drag-resize div {
-        padding: 1rem;
-      }
       :root {
         --dr-initial-width: 400px;
         --dr-initial-height: 400px;
@@ -36,8 +33,10 @@
         margin: 5px;
         border: 1px solid black;
         background: white;
+        padding: 1rem;
       }
       drag-resize::part(wrapper) {
+        padding: 1rem;
         margin: 5px;
         border: 1px solid black;
         background: white;
