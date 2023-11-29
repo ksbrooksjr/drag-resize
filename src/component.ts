@@ -54,36 +54,52 @@ export default class DraggableResizable extends HTMLElement {
     shadowRoot.appendChild(wrapper)
   }
 
+  /**
+   * Dragging and resizing should only occur if the mouse is down,
+   * so if the mouseup event fires,
+   * then set the canResize and mouseDown properties to false,
+   * then set the cursor back to the default icon.
+   */
+  #mouseUpListener(wrapper: HTMLElement) {
+    this.#state.canResize = this.#state.mouseDown = false
+    wrapper.style.cursor = 'default'
+  }
+
+  /**
+   * Sets the mouseDown property to true (dragging is allowed as long as the mouse is currently down).
+   * Also checks whether the user can currently resize the element.
+   */
+  #mouseDownListener(wrapper: HTMLElement, e: MouseEvent) {
+    if (!this.#DRAGGABLE && !this.#RESIZABLE) return
+    this.#state.mouseDown = true
+    if (this.#canResize(e, wrapper)) this.#state.canResize = true
+  }
+
+  /** Calls the methods that handle the mouse move event. */
+  #mouseMoveListener(wrapper: HTMLElement, e: MouseEvent) {
+    this.#setupMouseMove(wrapper, this.#state, e)
+    this.#handleMouseMove(wrapper, this.#state, e)
+  }
+
   /** Sets up the event listeners. */
   #setupListeners = () => {
     const wrapper = this.shadowRoot!.getElementById('wrapper')
     if (!wrapper) return console.error('The wrapper element is missing.')
-    /**
-     * Dragging and resizing should only occur if the mouse is down,
-     * so if the mouseup event fires,
-     * then set the canResize and mouseDown properties to false,
-     * then set the cursor back to the default icon.
-     */
-    document.addEventListener('mouseup', () => {
-      this.#state.canResize = this.#state.mouseDown = false
-      wrapper.style.cursor = 'default'
-    })
 
-    /**
-     * Sets the mouseDown property to true (dragging is allowed as long as the mouse is currently down).
-     * Also checks whether the user can currently resize the element.
-     */
-    wrapper.addEventListener('mousedown', (e) => {
-      if (!this.#DRAGGABLE && !this.#RESIZABLE) return
-      this.#state.mouseDown = true
-      if (this.#canResize(e, wrapper)) this.#state.canResize = true
-    })
+    document.addEventListener(
+      'mouseup',
+      this.#mouseUpListener.bind(this, wrapper),
+    )
 
-    /** Calls the methods that handle the mouse move event. */
-    document.addEventListener('mousemove', (e) => {
-      this.#setupMouseMove(wrapper, this.#state, e)
-      this.#handleMouseMove(wrapper, this.#state, e)
-    })
+    wrapper.addEventListener(
+      'mousedown',
+      this.#mouseDownListener.bind(this, wrapper),
+    )
+
+    document.addEventListener(
+      'mousemove',
+      this.#mouseMoveListener.bind(this, wrapper),
+    )
   }
 
   /** Gets called by the browser when the custom element is connected. */
