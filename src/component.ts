@@ -83,6 +83,8 @@ export default class DraggableResizable extends HTMLElement {
 
   /** Sets up the event listeners. */
   #setupListeners = () => {
+    if (window.matchMedia('(hover: none)').matches) return
+
     const wrapper = this.shadowRoot!.getElementById('wrapper')
     if (!wrapper) return console.error('The wrapper element is missing.')
 
