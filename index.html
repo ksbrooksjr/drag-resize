@@ -41,6 +41,16 @@
         border: 1px solid black;
         background: white;
       }
+
+      .mobile {
+        display: none;
+      }
+
+      @media (hover: none) {
+        .mobile {
+          display: unset;
+        }
+      }
     </style>
   </head>
   <body>
@@ -54,6 +64,9 @@
         maxheight="500">
         <div>
           <p>Drag and Resize Me!</p>
+          <p class="mobile">
+            Sorry, this demo only works on devices with a trackpad or mouse!
+          </p>
         </div>
       </drag-resize>
     </div>
