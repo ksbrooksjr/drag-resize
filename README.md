@@ -19,7 +19,7 @@ Or you can simply add a script tag that loads the component from a CDN:
 ```html
 <script
   src="https://cdn.jsdelivr.net/npm/@ksbrooksjr/drag-resize@0.4.0/dist/index.js"
-  integrity=""
+  integrity="sha384-nAysYspY0HaFOsic/82kKlyj7qn34QY7rXez5s3Xzq2+1IRtN6+WYr9mJ51i53Qi"
   crossorigin="anonymous"></script>
 ```
 
