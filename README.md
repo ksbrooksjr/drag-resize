@@ -44,7 +44,7 @@ The component can be customized using the following html attributes:
 - **minwidth(number)**: the minimum width (in pixels) that the component can be resized to _(default: 100)_
 - **minheight(number)**: the minimum height (in pixels) that the component can be resized to _(default: 100)_
 - **maxwidth(number)**: the maximum width (in pixels) that the component can be resized to _(default: Infinity)_
-- **maxheight(number)**: the minimum height (in pixels) that the component can be resized to _(default: Infinity)_
+- **maxheight(number)**: the maximum height (in pixels) that the component can be resized to _(default: Infinity)_
 
 Example with all options:
 

@@ -176,9 +176,9 @@ export default class DraggableResizable extends HTMLElement {
       x: null,
       y: null,
     },
-    /** Whether or not the user be allowed to resize at the current moment. */
+    /** Whether or not the user should be allowed to resize at the current moment. */
     canResize: false,
-    /** Whether or not the user be allowed to drag at the current moment. */
+    /** Whether or not the user should be allowed to drag at the current moment. */
     mouseDown: false,
   }
 
@@ -225,7 +225,7 @@ export default class DraggableResizable extends HTMLElement {
 
   /**
    * Determines whether or not a resize is allowed based on the min and max height and width.
-   * Resizing is allowed as long as one of the following are true:
+   * Resizing is allowed as long as one of the following criteria are satisfied:
    * 1. The new dimensions do not exceed the minimum and maximum values.
    * 2. The new dimensions are trending towards the minimum and maximum values.
    *
